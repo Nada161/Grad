@@ -49,8 +49,8 @@ class _VideoPageState extends State<VideoPage> {
         Padding(
          padding: const EdgeInsets.all(4.0),
          child: Column(
-           crossAxisAlignment: CrossAxisAlignment.stretch,
-           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+           //crossAxisAlignment: CrossAxisAlignment.start,
+           mainAxisAlignment: MainAxisAlignment.spaceAround,
            children: [
             Expanded(
               child: FutureBuilder<v.Video>(
@@ -82,13 +82,6 @@ class _VideoPageState extends State<VideoPage> {
                  },
                ),
              ),
-             Expanded(child: Row(
-               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-               children: [
-                 Icon(Icons.thumb_up),
-                 Icon(Icons.thumb_down),
-               ],
-             )),
              Expanded(
                child: FutureBuilder(
                  future: futureData,
@@ -99,7 +92,7 @@ class _VideoPageState extends State<VideoPage> {
 
                          child: ListView(
                            children: <Widget>[
-                             Text(data.transcript),
+                             Text(data.transcript??'No transcribt'),
                            ],
                          ),
                        ),
@@ -156,12 +149,9 @@ class _VideoPageState extends State<VideoPage> {
                ),
                // Within the `FirstRoute` widget
                onPressed: () {
-                 Navigator.push(
-                   context,
-                   MaterialPageRoute(
-                       builder: (context) => KeywordPage()),
-                 );
-               },
+                 Navigator.of(context).push(MaterialPageRoute(
+           builder: (context)=>KeywordPage(loId: widget.loId,)));
+  },
              ),
            ],
          )),

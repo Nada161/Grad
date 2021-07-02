@@ -10,7 +10,7 @@ void main() =>runApp(
 
   MaterialApp(
     debugShowCheckedModeBanner: false,
-    initialRoute: MyCourses.id,
+    initialRoute: Login.id,
 title: "Study Room App",
 routes: {
   Login.id: (context) => Login(),
