@@ -4,7 +4,6 @@ import 'package:graduation/utl/natwork.dart';
 import 'package:graduation/screens/listOfLessons.dart';
 import 'package:graduation/utl/data_module.dart';
 
-
 class MyCourses extends StatefulWidget {
   static String id = 'MyCourses';
   @override

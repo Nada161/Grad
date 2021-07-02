@@ -3,6 +3,7 @@ import 'package:graduation/screens/keyword.dart';
 import 'package:graduation/screens/login.dart';
 import 'package:graduation/screens/video.dart';
 import 'package:graduation/utl/natwork.dart';
+import 'package:graduation/utl/object_module.dart';
 import 'package:graduation/widget.dart';
 
 class ListOfObject extends StatefulWidget {
@@ -21,7 +22,7 @@ class _ListOfObjectState extends State<ListOfObject> {
     super.initState();
     futureLessonObject = fetchLessonObjects(widget.courseCode,widget.lessonCode);
   }
-  var data;
+   late Object? data;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,19 +32,22 @@ class _ListOfObjectState extends State<ListOfObject> {
             builder: (_, snapshot){
               if (snapshot.hasData){
                 data=snapshot.data;
-                return ListView.builder(
-                    itemCount: data.length ,
-                    itemBuilder: (context, index){
-                      return GestureDetector(
-                        onTap: (){
-                        },
-                        // Card Which Holds Layout Of ListView Item
-                        child: Card(
-                            child:
-                            Text(data.topics[index].subTopics[index].subSubTopics[index].title??'No title')
+                return ListView(
+                  children: data!.topics!.map((e) => Column(
+                    children: e.subTopics!.map((e) => Column(
+                      children:e.subSubTopics!.map((e) => Visibility(
+                        visible: e.lOid!.isNotEmpty,
+                        child: GestureDetector(
+                          onTap: (){
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (context)=>VideoPage(loId: e.lOid,)));
+                          },
+                          child: Card(
+                              child: Text(e.title??'no title')),
                         ),
-                      );
-                    });
+                      )).toList() ,)).toList(),)).toList(),
+                );
+                       
               }else if(snapshot.hasError){
                 return Text("${snapshot.error}");
               }

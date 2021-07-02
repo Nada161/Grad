@@ -16,9 +16,9 @@ routes: {
   Login.id: (context) => Login(),
   MyCourses.id : (context) => MyCourses(),
   ListOfLessons.id: (context)=>ListOfLessons(),
-  //ListOfObject.id: (context)=>ListOfObject(),
+  ListOfObject.id: (context)=>ListOfObject(),
   KeywordPage.id :(context)=>KeywordPage(),
- // VideoPage.id :(context)=>VideoPage(),
+  VideoPage.id :(context)=>VideoPage(),
 
 
 

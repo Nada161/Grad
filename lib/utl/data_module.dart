@@ -10,10 +10,10 @@ List<Course> coursesFromJson(String str) => List<Course>.from(json.decode(str).m
 
 class Course {
   Course({
-     this.courseCode,
-     this.intakeNo,
+    this.courseCode,
+    this.intakeNo,
     this.title,
-     this.image,
+    this.image,
   });
 
   String? courseCode;
@@ -22,10 +22,10 @@ class Course {
   String? image;
 
   factory Course.fromJson(Map<String, dynamic> json) => Course(
-    courseCode: json["courseCode"]  ,
-    intakeNo: json["intakeNo"] ,
-    title: json["title"] ,
-    image: json["image"]
+      courseCode: json["courseCode"]  ,
+      intakeNo: json["intakeNo"] ,
+      title: json["title"] ,
+      image: json["image"]
   );
 
 
