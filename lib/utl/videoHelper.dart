@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:chewie/chewie.dart';
 import 'package:video_player/video_player.dart';
-import 'package:graduation/utl/natwork.dart';
 
 // ignore: must_be_immutable
 class Video extends StatefulWidget {
@@ -35,8 +34,18 @@ class _VideoState extends State<Video> {
   }
   @override
   Widget build(BuildContext context) {
-    return Chewie(
-      controller: _chewieController,
+    return Container(
+      height: 300.0,
+      decoration: BoxDecoration(
+          border: Border.all(
+            width: 3.0,
+            color: Colors.blueAccent,
+          ),
+          borderRadius: BorderRadius.all(Radius.circular(5.0),
+          )),
+      child: Chewie(
+        controller: _chewieController,
+      ),
     );
   }
   @override

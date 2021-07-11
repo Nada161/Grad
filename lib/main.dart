@@ -19,9 +19,6 @@ routes: {
   ListOfObject.id: (context)=>ListOfObject(),
   KeywordPage.id :(context)=>KeywordPage(),
   VideoPage.id :(context)=>VideoPage(),
-
-
-
 })
 
 );

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/gestures.dart';
 
-var data;
 // input field at log in page
 Widget textInputField(String text, Icon icon, bool obscure, TextInputType v) {
   return TextField(
@@ -20,7 +19,7 @@ Widget textInputField(String text, Icon icon, bool obscure, TextInputType v) {
   );
 }
 
-// body of List of courses , lessons , object pages
+// body of List of courses , lessons pages
 Widget singleChildScroll(
     BuildContext context,
     String appbar,
@@ -53,7 +52,7 @@ Widget singleChildScroll(
                     appbar,
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: 46.0,
+                      fontSize: 44.0,
                       fontWeight: FontWeight.w800,
                     ),
                   ),
@@ -77,40 +76,41 @@ Widget singleChildScroll(
     ),
   );
 }
-Widget text(String text, Color color, double size) {
+Widget text(String text, Color color, double size, FontWeight fontWeight) {
   return Text(
     '$text',
-    style: TextStyle(color: color, fontSize: size),
+    style: TextStyle(color: color, fontSize: size ),
+  );
+}
+Widget iconLine(){
+  return Padding(
+    padding: EdgeInsets.only(bottom: 20.0 ,top: 20.0),
+    child: Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: <Widget>[
+        iconItems(Icons.thumb_up, '21k'),
+        iconItems(Icons.thumb_down, '5'),
+      ],
+    ),
   );
 }
 
-Widget iconLine() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: <Widget>[
-      iconItems(Icons.thumb_up, 1),
-      iconItems(Icons.thumb_down, 1),
-//      iconItems(Icons.share, ),
-//      iconItems(Icons.save_alt, ),
-    ],
-  );
-}
-
-// icon under video
-Widget iconItems(IconData icon, int num) {
+Widget iconItems(IconData icon, String def) {
   return Column(
     children: [
       Container(
-        child: IconButton(
-          icon: Icon(icon),
-          color: Colors.blueAccent,
-          onPressed: () => num++,
+        child: Icon(
+          icon,
+          color: Colors.grey,
         ),
       ),
-      text('num', Colors.blueAccent, 20.0)
+      text(def, Colors.grey, 20.0,FontWeight.w100)
     ],
   );
 }
+
+
+
 
 // KeyWord Card information (Links)
 Widget cardLink(String urlName, var url) {
